@@ -1,0 +1,39 @@
+
+##### 1. simulaciÃ³n de series de tiempo########
+### vamos a simular 1 indicador##### 
+### para la simulaciÃ³n en principio necesitamos alguna informaciÃ³n... 
+#### valor mÃ¡ximo, minimo, el numero de datos 
+
+### en este ejemplo vamos a proponer la poblaciÃ³n en MÃ©xico
+### que el valor minimo seran 100, max 120, 15 datos que inicie en 2000
+pob <- sample (100:120, 15, replace = F)
+pob
+### la convertimos en serie de tiempo
+pobts <- ts (pob, frequency = 1, start = (2000))
+end (pobts) ####
+start (pobts)##
+plot (pobts) #### darle formato
+plot (aggregate (pobts))
+
+
+############### bajar del inegi la ocupacion  de las personas.... 
+#### importar csv
+#### importar csv
+infor4<-ts(read.csv(("C:\\Users\\SALA-D6\\Downloads\\infor.csv"), 
+                    header = T),frequency=4, start=2005);
+infor4
+
+indi3<-(read.csv(("C:\\Users\\SALA-D6\\Downloads\\indicadores.csv")))
+decost <- ts(indi3[,1], start =2005, freq = 4, end = 2014)
+decost
+
+############ declarar 3 series de tiempo de la matriz indi3
+###### la serie de tiempo deben ser la tasa de ocupacion parical, 
+######## trabajo asalariado y tasa de condiciones criticas
+
+#### tarea 1 importar la base de datos con las 4 tasas seleccionadas
+#### desde la pagina del inegi ... 
+
+
+
+                 
