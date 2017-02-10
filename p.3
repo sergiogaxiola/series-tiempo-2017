@@ -1,0 +1,55 @@
+Ejercicio
+
+#### Generar 4 objetos con datos aleatorios y que tengan 60 datos
+###objeto 1 de n?mero de profesionista (mill)rango de 5 a 8
+### objeto 2 crec pib rango de 0 a 5
+### objeto 3 porcentaje de ocupados rango de 40 a 60
+### objeto 4 porcentaje de desocupados rango de 3 a 8
+prof<-sample (5:8, 60, replace=TRUE) ### objeto 1 
+cpib<-sample (0:5, 60, replace=TRUE)  ### objeto 2
+employed<-sample (40:60, 60, replace=TRUE)### objeto 3 
+unemployed<-sample (3:8, 60, replace=TRUE)### objeto 4 
+
+#### 1) una vez que generen los datos hacer un data frame
+#de los 4 objetos
+pceu<-data.frame (prof, cpib, employed, unemployed)
+#### 2) mostrar en consola los primeros 12 y 
+#ultimos 12 datos
+pceus12 <- pceu [1:12, ] ### muestra los primeros 12 renglones
+pceu [49:60,]
+
+#### 3) convertir los objetos en series de tiempo 
+#desde el data frame comezando en 2010 y 
+#son datos mensuales
+profts<-ts(prof, frequency=12, start=(2010))
+cpibts<-ts(cpib, frequency=12, start=(2010))
+employedts<-ts(employed, frequency=12, start=(2010))
+unemployedts<-ts(unemployed, frequency=12, start=(2010))
+end (profts)
+#### 4) graficar los profesionistas y
+##ocupados en la misma imagen
+
+
+plot.ts(pceu [, c(1,3)])
+#### 5) graficar pib y desocupados en la misma imagen
+#### 6) graficar todas juntas
+profts<-ts(prof, frequency=12, start=c(2010))
+cpibts<-ts(cpib, frequency=12, start=c(2010))
+employedts<-ts(employed, frequency=12, start=c(2010))
+unemployedts<-ts(unemployed, frequency=12, start=c(2010))
+pceu<-ts.intersect (profts, cpibts, employedts, unemployedts)
+
+plot(cbind( profts, employedts))
+plot (cbind(cpibts, unemployedts))
+plot(cbind(profts, employedts, cpibts, unemployedts ))
+##################################
+## Bajar base de datos del pib (tasa de crecimiento anual)
+## en mexico de 1980 a 2015
+# 1) crear 4 series de tiempo
+# 1980 a 1990 serie 1
+#1991 a 2000 serie 2 
+# 2001 a 2010 serie 3 
+# 2011 a 2015 serie 4
+
+# graficar serie 2 y 3 
+##graficar serie 1 y 4
