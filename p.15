@@ -1,0 +1,36 @@
+
+#para descomponer una  serie de teimpoe graficamente se utiliza
+## una funcion que se llama decompose, por lo que primero 
+#es importante reconocer la serie de tiempo y despues aplicarle la funcion 
+#graficamente
+desoc <- sample (3:8, 44, replace =T)
+tdesoc <- ts (desoc, frequency =4, start = 2005)
+plot (decompose(tdesoc))
+plot (tdesoc)
+tiie <- read.csv ("C:\\Users\\SALA-D6\\Downloads\\TIIE2015.csv")
+sttiie<- ts (tiie, frequency = 52, start = 2005)
+  plot (sttiie)
+plot (decompose (sttiie))
+
+pib <- read.csv ("C:\\Users\\SALA-D6\\Downloads\\PIB Méxicov1.csv")
+pibst<- ts (pib, frequency = 4, start = 2007)
+plot (pibst)
+
+plot (decompose (pibst))
+View (pibst)
+summary (pibst)
+names (pibst$trend)
+depibst <- decompose(pibst)
+names (depibst)
+depibst$trend
+depibst$seasonal
+
+### ejercicio descomponer una serie de tiempo 
+### 1)graficamente y 2)mandar llamra cada uno de 
+## los componentes de la serie de tiempo
+## realizar un interpretacion sobre los datos 
+#observados de la serie de tiempo
+## serie 1= consumo de bienes y servicios de
+## mx anuales [renglon 9:43, columna k] 
+## serie 2 = tasa de desocupacoion, 2005, 
+##trimes
