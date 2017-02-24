@@ -1,0 +1,52 @@
+#################################################
+#########################FOR##################
+##################################################3
+u1<- (1:10)
+for(i in 1:10) {
+  u1[i] <- u1[i]+2
+  print(u1[i])
+}
+u1
+###############################################
+#################WHILE ########################3
+###########################################
+s <- 7
+while(s < 6) {s <- s*2; print(s);}
+
+s<- 1
+while(s < 5) {s <- s+1; ; if (s == 4) break; print(s); }
+s<- 1 
+while(s < 5) {s <- 0+1; ; if (s == 2) break; print(s); }
+### corre todos los valores pq no encuentra el 2
+
+s <- 2
+while(s < 5) {s <- s+1; if (s == 3) next; print(s);}
+
+
+sample (1:32, 2)
+
+
+
+
+
+##########################################################################33
+##########################graficas########################################
+##########################################################################
+########################TENDENCIA ########################################3
+tsdes <- ts(desocupacion,frequency = 4,start = 2005)
+detsdes <- decompose(tsdes, type = "multiplicative")
+detsdes$trend
+detsdes$seasonal
+plot(tsdes, col="blue",
+     main="tasa de desocupacion trimestral",
+     ylab="Tasas", xlab="aÃ±os")
+lines(detsdes$trend,col="red",ylab="Tendencia")
+##########################ESTACIONARIEDAD##############################33
+#####################################################################
+monthplot(detsdes$seasonal, main="IVEc", ylab="ivec trimestra" )
+
+########################### tarea para el lunes
+########1) encontrar una st con tendencia a la alza y 
+######### la estacionaridad tambien se increment
+######## 2) aplicar modelo multiplicativo 
+#######  3) graficar tendencia..... 
