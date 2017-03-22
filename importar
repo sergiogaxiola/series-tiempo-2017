@@ -1,0 +1,74 @@
+#Importacion de datos
+
+#Fn."read.table()" para el archivo .csv
+E=read.table("p1.csv",header=T,sep=",")
+
+A="C:/Users/SALA-D6/Documents/P1.csv"
+AA=read.csv(file=A,header = TRUE)
+AA
+
+#Obtener solo una columna, (Datos del PIB terciario)
+#((obtener varias columnas/ E1=[3:5]))
+y=AA[,5]
+y #Vector numérico del PIB terciario
+
+#Fn "ts()"
+SY=ts(y,start=c(1993,1),end=c(2016,4),freq=4)
+SY
+
+plot(y)
+plot(SY)
+#par: permite presentar graficos multiples; (mfrow) es rellenar por filas, en este caso 1 fila 2 columnas
+par(mfrow=c(1,2)) 
+
+#Tasa de crecimiento del sector terciario
+N=length(SY)
+N
+(n=length(y))
+#cuando es una tasa de crecimiento ((pib2017/pib2016)-1)*100
+
+#T.C. sector terciario
+n=length(y)
+(G=matrix(0,1,54))
+k=4;kk=k+1
+for(i in kk:n)
+  G[i]=((((y[3])/y[3-k])-1)*100) #tasa de crecimiento , primer trimestre con primer trimestre del otro, segundo con el segundo y tercero con el tercero.
+G
+plot(G)
+
+#i=VARIABLE/ SI K=4, KK=5/KK:n ,K va a operar desde kk hasta n
+
+Y1=AA[,6];Y1
+Y3=Y1[42:95];Y3
+
+#Tasa de crecimiento del sector terciario
+
+(n=length(Y3))
+#cuando es una tasa de crecimiento ((pib2017/pib2016)-1)*100
+
+#T.C. DE ITAEE MÉXICO
+n=length(Y3)
+(G=matrix(0,1,n))
+k=4;kk=k+1
+for(i in kk:n)
+  G[i]=((((y[i])/y[i-k])-1)*100) #tasa de crecimiento , primer trimestre con primer trimestre del otro, segundo con el segundo y tercero con el tercero.
+G
+plot(G)
+
+
+(G2=ts(t(G),start=c(2003,2),end = c(2016,3),freq=4))
+plot(G2)
+
+
+
+#mombre a columnas y filas
+x=matrix(c(10,22,31,15,15,25,33,28,25,20,18,25),nrow=4);x
+row.names(x)=c("Grupo1","Grupo2","Grupo3", "Grupo4");x
+colnames(x)=c("Ing","Eco","Med");x
+summary(x)
+boxplot(x,col=c(4,2,3,1))
+colors()
+barplot(x)
+barplot(x,col = c("#cc2ccc","#2b49cc","#2bcc5b","#f2cd18"),main = "Promedio de ingresos")
+barplot(x,col = c("#cc2ccc","#2b49cc","#2bcc5b","#f2cd18"),main = "Promedio de ingresos",xlab = "diferentes grupos",ylab = "frecuencia",legend=row.names(x))
+mosaicplot(x,col = c("#cc2ccc","#2b49cc","#2bcc5b","#f2cd18"),main = "Promedio de ingresos",xlab = "diferentes grupos",ylab = "frecuencia")
