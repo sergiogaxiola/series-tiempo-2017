@@ -1,0 +1,14 @@
+################### Ejercicio  en clase #############################
+#### utilizar 3 series de tiempo 
+#### serie 
+####1) precios diarios  del dólar últimos 6 meses 
+#### 2) acciones de ICA diarias cierre de 2016
+### 3) Últimos 16 años crecimiento (%) del Pib anual 
+### 4) acciones de Bimbo diarias cierre 2016
+#### 5) una serie que tenga que ver con su trabajo final 
+
+#### 1) obtener las series 
+#### 2) convertirlas en series de tiempo y graficarlas 
+#### 3) analizar las gráficas y decidir qué modelo usar, modelos simples (media, ingenuo, etc), holt, holt amortiguado, holt Winter
+#### 4) con cada una de las series hacer una comparación de los datos ajustados de los  modelos de predicción (elegir 1 modelo de  simple, 1 holt, 1 amortiguado y 1 winter), despues analizar cual ajusta mejor y porque ustedes creen que este modelo realiza el mejor ajuste. Apliquen la función accuracy para saber si su análisis grafico coincide con los resultados del accuracy
+#### 5) con cada una de las series hacer una comparación de los datos pronosticados de los  modelos de predicción (elegir 1 modelo de  simple, 1 holt, 1 amortiguado y 1 winter), despues analizar cual pronostica mejor 
